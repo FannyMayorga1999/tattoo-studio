@@ -1,0 +1,21 @@
+node_modules/
+.next/
+.env
+
+# Build output
+backend/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.yml
+
+# Logs
+*.log
+npm-debug.log*
