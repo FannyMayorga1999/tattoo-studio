@@ -1,0 +1,151 @@
+.page {
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.statsGrid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-ink-800);
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: border-color var(--transition-fast);
+  display: block;
+}
+
+.statCard:hover {
+  border-color: rgba(212, 168, 83, 0.3);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.statValue {
+  margin-top: 0.5rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.statValueBlue { color: #60a5fa; }
+.statValuePurple { color: #a78bfa; }
+.statValueYellow { color: var(--color-warning); }
+.statValueGreen { color: var(--color-success); }
+
+.lists {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .lists {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.listCard {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-ink-800);
+  padding: 1.5rem;
+}
+
+.listTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.listEmpty {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+}
+
+.list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listItemInfo {
+}
+
+.listItemName {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.listItemNameUnread {
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.listItemMeta {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+.listItemBadge {
+  font-size: 0.75rem;
+}
+
+.listItemBadgeRead {
+  color: var(--color-gray-600);
+}
+
+.listItemBadgeNew {
+  color: var(--color-gold);
+}
+
+.statusBadge {
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.statusPending {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--color-warning);
+}
+
+.statusConfirmed {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--color-success);
+}
+
+.statusCancelled {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--color-error);
+}

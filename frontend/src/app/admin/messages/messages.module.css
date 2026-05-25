@@ -1,0 +1,177 @@
+.page {
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.listItem {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-ink-800);
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.listItem:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.listItemSelected {
+  border-color: rgba(212, 168, 83, 0.3);
+  background: rgba(212, 168, 83, 0.04);
+}
+
+.listItemTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listItemName {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.listItemNameUnread {
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.unreadDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.listItemEmail {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+.listItemDate {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+}
+
+.empty {
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+}
+
+.detailCard {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-ink-800);
+  padding: 1.5rem;
+}
+
+.detailTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.detailName {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.detailContact {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.detailDate {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+.detailMeta {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-300);
+}
+
+.detailMessage {
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  color: var(--color-white);
+}
+
+.detailActions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.markBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ink-900);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.markBtn:hover {
+  background: var(--color-gold-400);
+}
+
+.deleteDetailBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--color-error);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-error);
+  background: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.deleteDetailBtn:hover {
+  background: var(--color-error);
+  color: var(--color-white);
+}

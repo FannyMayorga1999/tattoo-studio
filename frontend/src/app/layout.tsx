@@ -1,47 +1,40 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const displayFont = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-display",
-});
 
 const bodyFont = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
+  weight: ["300", "400", "500"],
+});
+
+const displayFont = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  weight: ["700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Elena Ink | Tattoo Studio",
+  title: "EXAMPLE TATTOO STUDIO | Premium Tattoo & Piercing",
   description:
-    "Seattle-based tattoo artist specializing in custom designs, realism, traditional, and fine line tattoos. Book your appointment today.",
-  keywords: [
-    "tattoo",
-    "tattoo artist",
-    "Seattle tattoo",
-    "custom tattoo",
-    "Elena Ink",
-  ],
+    "Award-winning tattoo studio specializing in realism, blackwork, fine line, and custom designs. Book your session with world-class artists.",
+  keywords: ["tattoo", "tattoo studio", "piercing", "custom tattoo", "EXAMPLE", "premium tattoo"],
   openGraph: {
-    title: "Elena Ink | Tattoo Studio",
-    description:
-      "Seattle-based tattoo artist specializing in custom designs.",
+    title: "EXAMPLE TATTOO STUDIO | Premium Tattoo & Piercing",
+    description: "Award-winning tattoo studio. Custom designs by world-class artists.",
     type: "website",
     locale: "en_US",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+      <body style={{ fontFamily: "var(--font-body)", WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale" }}>
+        {children}
+      </body>
     </html>
   );
 }

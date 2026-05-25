@@ -43,3 +43,40 @@ export interface ContactFormData {
   preferredDate?: string;
   message: string;
 }
+
+export interface ContactMessage {
+  id: number;
+  name: string;
+  email: string;
+  phone: string | null;
+  tattooStyle: string | null;
+  preferredDate: string | null;
+  message: string;
+  read: boolean;
+  createdAt: string;
+}
+
+export interface Appointment {
+  id: number;
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string | null;
+  date: string;
+  startTime: string;
+  endTime: string;
+  tattooStyle: string | null;
+  description: string | null;
+  status: string;
+  createdAt: string;
+}
+
+export interface TimeSlot {
+  start: string;
+  end: string;
+}
+
+export interface AdminUser {
+  id: number;
+  username: string;
+  name: string;
+}

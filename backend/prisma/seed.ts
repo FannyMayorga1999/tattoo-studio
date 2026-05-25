@@ -1,24 +1,38 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.artist.create({
-    data: {
+  const hashedPassword = await bcrypt.hash("admin123", 10);
+  await prisma.admin.upsert({
+    where: { username: "admin" },
+    update: {},
+    create: {
+      username: "admin",
+      password: hashedPassword,
       name: "Elena Ink",
-      bio: "With over 10 years of experience, Elena specializes in custom tattoo design, bringing each client's vision to life with precision and artistry. Based in downtown Seattle, she creates everything from delicate fine-line work to bold traditional pieces.",
-      avatar: null,
-      email: "elena@inkartstudio.com",
-      phone: "+1 (555) 123-4567",
-      location: "Seattle, WA",
-      socialLinks: {
-        instagram: "https://instagram.com/elena.ink",
-        facebook: "https://facebook.com/elena.ink",
-        pinterest: "https://pinterest.com/elena.ink",
-      },
-      experience: 10,
     },
   });
+  const existingArtist = await prisma.artist.findFirst();
+  if (!existingArtist) {
+    await prisma.artist.create({
+      data: {
+        name: "Elena Ink",
+        bio: "With over 10 years of experience, Elena specializes in custom tattoo design, bringing each client's vision to life with precision and artistry. Based in downtown Seattle, she creates everything from delicate fine-line work to bold traditional pieces.",
+        avatar: null,
+        email: "elena@inkartstudio.com",
+        phone: "+1 (555) 123-4567",
+        location: "Seattle, WA",
+        socialLinks: {
+          instagram: "https://instagram.com/elena.ink",
+          facebook: "https://facebook.com/elena.ink",
+          pinterest: "https://pinterest.com/elena.ink",
+        },
+        experience: 10,
+      },
+    });
+  }
 
   const styles = [
     { name: "Traditional", description: "Bold lines and classic colors with timeless American traditional designs.", icon: "⚓", order: 1 },
@@ -30,7 +44,11 @@ async function main() {
   ];
 
   for (const style of styles) {
-    await prisma.tattooStyle.create({ data: style });
+    await prisma.tattooStyle.upsert({
+      where: { name: style.name },
+      update: {},
+      create: style,
+    });
   }
 
   const portfolioItems = [
@@ -48,8 +66,11 @@ async function main() {
     { title: "Butterfly Watercolor", description: "Colorful watercolor butterfly with splatter effects.", imageUrl: "/images/portfolio/butterfly.jpg", category: "Watercolor", featured: false },
   ];
 
-  for (const item of portfolioItems) {
-    await prisma.portfolioItem.create({ data: item });
+  const existingCount = await prisma.portfolioItem.count();
+  if (existingCount === 0) {
+    for (const item of portfolioItems) {
+      await prisma.portfolioItem.create({ data: item });
+    }
   }
 
   console.log("Database seeded successfully!");

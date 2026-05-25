@@ -1,0 +1,142 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-ink-900);
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  height: 100%;
+  width: 16rem;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-ink-800);
+  z-index: 40;
+}
+
+.sidebarHeader {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 1.5rem;
+}
+
+.sidebarBrand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.sidebarBrand:hover {
+  opacity: 0.85;
+}
+
+.sidebarBadge {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: var(--radius-lg);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-white);
+}
+
+.navItemActive {
+  background: rgba(212, 168, 83, 0.1);
+  color: var(--color-gold);
+}
+
+.navIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.sidebarFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.viewSite {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+  text-decoration: none;
+}
+
+.viewSite:hover {
+  color: var(--color-gold);
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--color-error);
+  text-align: left;
+  padding: 0;
+}
+
+.logoutBtn:hover {
+  opacity: 0.85;
+}
+
+.main {
+  margin-left: 16rem;
+  flex: 1;
+  padding: 2rem;
+}
+
+.loading {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-ink-900);
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-gold);
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

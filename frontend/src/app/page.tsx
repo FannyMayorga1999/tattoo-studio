@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import FeaturedArtist from "@/components/FeaturedArtist";
+import Gallery from "@/components/Gallery";
+import Services from "@/components/Services";
 import About from "@/components/About";
-import PortfolioGallery from "@/components/PortfolioGallery";
-import TattooStyles from "@/components/TattooStyles";
-import ContactForm from "@/components/ContactForm";
+import FAQ from "@/components/FAQ";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import type { Artist, PortfolioItem, TattooStyle } from "@/types";
 import { getArtist, getPortfolio, getStyles } from "@/lib/api";
@@ -44,15 +47,18 @@ export default function Home() {
         <Hero />
         {!loading && (
           <>
-            <About artist={artist} />
-            <PortfolioGallery items={portfolio} />
-            <TattooStyles styles={styles} />
-            <ContactForm styles={styles} />
+            <FeaturedArtist />
+            <Gallery items={portfolio} />
+            <Services />
+            <About />
+            <FAQ />
+            <Testimonials />
+            <Contact styles={styles} />
           </>
         )}
         {loading && (
-          <div className="flex h-screen items-center justify-center bg-ink-900">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold border-t-transparent" />
+          <div className="flex items-center justify-center h-screen bg-ex-950">
+            <div className="w-6 h-6 rounded-full border border-ember border-t-transparent animate-spin" />
           </div>
         )}
       </main>
